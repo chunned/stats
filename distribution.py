@@ -56,3 +56,4 @@ def hypergeometric(population, success_states,
     return (n_choose_k(success_states, observed_successes, 'n') * n_choose_k(
         population - success_states, draws - observed_successes, 'n')) / n_choose_k(population, draws, 'n')
 
+
