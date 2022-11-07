@@ -9,7 +9,7 @@ def n_choose_k(n, k, repetition):       # calculates C(n,k)
         return factorial(n + k - 1) / (factorial(k) * factorial(n - 1))
 
 
-def binomial_distribution(n, k, p):
+def binomial(n, k, p):
     # Calculates binomial distribution
     # n = number of trials, k = number of successes, p = probability of a single success
     choose = n_choose_k(n, k, 'n')
@@ -21,7 +21,7 @@ def binomial_fewer_than(n, k, p):
     # Calculates the probability of k or fewer successes
     total = 0
     for i in range(0, k+1):
-        total += binomial_distribution(n, i, p)
+        total += binomial(n, i, p)
     return total
 
 
@@ -49,3 +49,10 @@ def poisson(rate, k):
     # rate = average rate over a period of time
     # k = number of events
     return (rate ** k * e ** (rate * -1))/factorial(k)
+
+
+def hypergeometric(population, success_states,
+                   draws, observed_successes):
+    return (n_choose_k(success_states, observed_successes, 'n') * n_choose_k(
+        population - success_states, draws - observed_successes, 'n')) / n_choose_k(population, draws, 'n')
+
