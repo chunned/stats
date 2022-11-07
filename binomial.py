@@ -1,8 +1,4 @@
-def factorial(n):   # calculates n!
-    x = 1
-    for i in range(1,n+1):
-        x *= i
-    return x
+from factorial import factorial
 
 
 def n_choose_k(n, k):       # calculates C(n,k)
@@ -24,5 +20,3 @@ def binomial_fewer_than(n, k, p):
         total += binomial_distribution(n, i, p)
     return total
 
-
-print(binomial_fewer_than(200, 16, 0.12))
